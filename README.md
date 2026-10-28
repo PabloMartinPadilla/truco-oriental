@@ -4,7 +4,7 @@ Truco uruguayo en pixel art. Recorrés Uruguay de boliche en boliche apostando t
 
 ## Cómo jugar
 
-No hace falta instalar nada: abrí `index.html` en el navegador. También se puede publicar tal cual con GitHub Pages.
+No hace falta instalar nada: abrí `index.html` en el navegador. La guitarra de la música se descarga de jsDelivr, así que para escucharla hace falta internet. También se puede publicar tal cual con GitHub Pages.
 
 Para servirlo localmente:
 
@@ -38,7 +38,7 @@ Para probar compras: tocá 5 veces seguidas el botón **Inicio** y aparece un t�
 ```
 index.html            pantallas y orden de carga
 css/estilos.css       estética pixel art, mesa, mapa, almacén y ombú
-assets/guitarra.js    muestras de guitarra criolla en base64
+assets/guitarra.js    de dónde se cargan las muestras de guitarra criolla (jsDelivr)
 js/reglas.js          mazo, muestra, piezas, jerarquía, envido, flor y ganador de la mano
 js/pixel.js           paleta, sprites y dibujo de las cartas
 js/sonido.js          música y efectos con Web Audio
