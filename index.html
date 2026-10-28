@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es-UY">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Truco Oriental</title>
+<meta name="description" content="Truco uruguayo en pixel art: gira por Uruguay, mañas, mate, apuestas y la final contra el porteño.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&display=swap">
+<link rel="stylesheet" href="css/estilos.css">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html,body{margin:0}body{font-size:14px}[hidden]{display:none!important}*{box-sizing:border-box}</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="topbar">
+    <h1>Truco <span>Oriental</span></h1>
+    <div class="nav">
+      <span class="plata" id="plata">$ 0</span>
+      <button class="btn nb" data-a="irInicio" id="navInicio">Inicio</button>
+      <button class="btn nb" data-a="irMapa" id="navMapa">Mapa</button>
+      <button class="btn nb" data-a="irTienda" id="navTienda">Almacén</button>
+      <button class="btn nb" data-a="irHab" id="navHab">Habilidades</button>
+      <div class="audio">
+        <button class="btn ghost" data-a="musica" id="btnMusica" aria-pressed="false">Música: no</button>
+        <label for="volMusica">Música</label><input type="range" id="volMusica" min="0" max="100" value="60">
+        <label for="volSfx">Sonidos</label><input type="range" id="volSfx" min="0" max="100" value="80">
+      </div>
+    </div>
+  </header>
+
+  <section id="scrInicio" class="wrap" style="max-width:none"><div id="inicio"></div></section>
+
+  <section id="scrHab" class="wrap" style="max-width:none" hidden><div id="arbol"></div></section>
+
+  <section id="scrMapa" class="wrap" style="max-width:none" hidden>
+    <div class="mapa-wrap">
+      <div class="mapa" id="mapaBox"><canvas id="mapa" width="336" height="376" aria-label="Mapa de Uruguay con las paradas de la gira"></canvas><div id="pins"></div></div>
+      <div class="parada" id="parada"></div>
+    </div>
+  </section>
+
+  <section id="scrTienda" class="tienda" hidden>
+    <div class="topbar"><h2>Almacén de ramos generales</h2><div class="botones"><button class="btn ghost" data-a="reset">Empezar la gira de nuevo</button></div></div>
+    <div id="tienda" class="tienda"></div>
+  </section>
+
+  <section id="scrJuego" class="wrap" style="max-width:none" hidden>
+    <div class="matchbar"><div class="info" id="matchInfo"></div><div class="serie" id="serie"></div><div class="botones"><label class="chk" for="ayudas"><input type="checkbox" id="ayudas" checked> Ayudas</label><button class="btn ghost" data-a="abandonar">Abandonar</button></div></div>
+    <div class="score" id="score"></div>
+    <div class="mesa" id="mesa">
+      <div class="seat top" id="seatTop"></div>
+      <div class="medio">
+        <div class="seat lado" id="seatLeft"></div>
+        <div class="centro" id="centro">
+          <div class="muestra" id="muestraBox"><div class="lbl">Muestra</div><div id="muestra"></div></div>
+          <div class="bazas" id="bazas"></div>
+        </div>
+        <div class="seat lado" id="seatRight"></div>
+      </div>
+      <div class="hand" id="handP"></div>
+      <div class="row" style="justify-content:center"><div class="bubble" id="bubbleP"></div></div>
+      <div id="anuncio"></div>
+      <div id="reparto"></div>
+    </div>
+    <div class="status"><span id="status"></span><span id="evento"></span></div>
+    <div class="acciones" id="acciones"></div>
+    <div class="senas" id="senas" hidden></div>
+    <div class="panel">
+      <div class="equipo" id="equipoBox"></div>
+      <div class="manas" id="manas"></div>
+    </div>
+    <div class="log" id="log" aria-live="polite"></div>
+    <details class="ayuda">
+      <summary>Reglas rápidas</summary>
+      <ol>
+        <li>Truco uruguayo 1 contra 1. Se juegan primera, segunda y tercera: gana quien gane dos.</li>
+        <li>La muestra manda: el 2, 4, 5, 11 y 10 de su palo son piezas y le ganan a todo. Si la muestra es pieza, el 12 toma su lugar.</li>
+        <li>Después: 1 de espadas, 1 de bastos, 7 de espadas, 7 de oros, los 3, los 2, los 1 falsos, 12, 11, 10, 7 falsos, 6, 5 y 4.</li>
+        <li>Si tenés flor la tenés que cantar antes de tu primera carta. Anula el envido.</li>
+        <li>En truco argentino no hay muestra ni piezas ni flor: el envido se cuenta con dos cartas del mismo palo más 20.</li>
+        <li>La chicana calienta al rival: grita algo que suele delatar su mano (fanfarrón, buena mano; nervioso, mala), aunque a veces miente. Calentado, esa mano quiere todo.</li>
+        <li>De a cuatro, el que responde los cantos por tu equipo sos vos. El Tío Pocholo te hace señas al empezar cada mano.</li>
+      </ol>
+    </details>
+  </section>
+</div>
+<div id="modal"></div>
+
+<script src="assets/guitarra.js"></script>
+<script src="js/reglas.js"></script>
+<script src="js/pixel.js"></script>
+<script src="js/sonido.js"></script>
+<script src="js/catalogo.js"></script>
+<script src="js/habilidades.js"></script>
+<script src="js/motor.js"></script>
+<script src="js/mesa.js"></script>
+<script src="js/gira.js"></script>
+<script src="js/pantallas.js"></script>
+<script src="js/eventos.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "truco-oriental",
+  "version": "0.1.0",
+  "description": "Truco uruguayo en pixel art: gira por Uruguay, mañas, mate, apuestas y la final contra el porteño.",
+  "private": true,
+  "scripts": {
+    "test": "node tests/simular.js 10",
+    "start": "npx --yes serve ."
+  }
+}
