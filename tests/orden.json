@@ -1,0 +1,13 @@
+[
+ "assets/guitarra.js",
+ "js/reglas.js",
+ "js/pixel.js",
+ "js/sonido.js",
+ "js/catalogo.js",
+ "js/habilidades.js",
+ "js/motor.js",
+ "js/mesa.js",
+ "js/gira.js",
+ "js/pantallas.js",
+ "js/eventos.js"
+]
