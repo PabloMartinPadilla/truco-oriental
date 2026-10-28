@@ -9,5 +9,6 @@
  "js/mesa.js",
  "js/gira.js",
  "js/pantallas.js",
+ "js/tutorial.js",
  "js/eventos.js"
 ]

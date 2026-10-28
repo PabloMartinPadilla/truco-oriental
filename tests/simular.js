@@ -26,6 +26,7 @@ const sandbox = {
   document: {
     getElementById: (id) => elementos[id] || (elementos[id] = elemento()),
     addEventListener() {}, createElement: () => elemento(), body: { classList: { toggle() {} } },
+    querySelector: () => null, querySelectorAll: () => [],
   },
 };
 sandbox.window = sandbox;
@@ -38,6 +39,7 @@ const codigo = orden.map((f) => fs.readFileSync(path.join(__dirname, '..', f), '
 vm.runInContext(codigo, sandbox);
 
 const T = sandbox.__truco.api;
+T.state().C.tipsOff = true; // en la simulación nadie lee los consejos
 const vaciar = () => { while (cola.length) cola.shift()(); };
 
 function jugar() {
